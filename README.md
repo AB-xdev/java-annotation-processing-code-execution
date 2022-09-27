@@ -13,10 +13,9 @@ This is a test library to test if your compiler automatically executes Java Anno
 Annotation processing is done by the Java compiler itself (because it's from a time before buildtools like Maven or Gradle).
 
 This itself is not a problem but the following design aspects are:
-https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html#annotation-processing
-> Unless annotation processing is disabled with the `-proc:none` option, the compiler searches for any annotation processors that are available. The search path can be specified with the `-processorpath` option. If no path is specified, then the user class path is used. Processors are located by means of service provider-configuration files named `META-INF/services/javax.annotation.processing` Processor on the search path.
+> Unless annotation processing is disabled with the `-proc:none` option, the compiler searches for any annotation processors that are available. The search path can be specified with the `-processorpath` option. If no path is specified, then the user class path is used. Processors are located by means of service provider-configuration files named `META-INF/services/javax.annotation.processing` ... <sup>[[Javac Documentation]](https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html#annotation-processing)</sup>
 
-So if a malicous or manipulated library somehow ends up in your project, it can execute ANY code when compilation happens.
+So if a malicous or manipulated library somehow ends up in your project, it can execute ANY code when compilation happens due to [Java's service-loading](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ServiceLoader.html).
 
 Everything that uses a Java Compiler (e.g. `javac` or `ecj`) with the default options (IDEs like Eclipse/IntelliJ or the maven-compiler-plugin) are affected.
 

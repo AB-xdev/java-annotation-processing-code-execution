@@ -3,6 +3,8 @@
 
 This is a test library to test if your compiler automatically executes Java Annotation Processors.
 
+⚠ This library might crash the compiler
+
 ## Background
 
 <img src="./JSR269InANutshell.png" height=450 />
@@ -26,6 +28,8 @@ Run ``mvn clean install``.
 ## Testing if your code is attackable
 
 Build the library as mentioned above.
+
+⚠ If you use Eclipse: Make sure that "Build automatically" is disabled! (see below)
 
 Add the following dependency to your code:
 ```xml
@@ -69,4 +73,12 @@ However this doesn't disable the Annotation Processors and they are still execut
 [You have to disable them in the settings](https://www.jetbrains.com/help/idea/annotation-processors-support.html).
 
 #### Eclipse
+
+⚠ Adding this library might cause the IDE to crash because the build process is not sandboxed.<br/>
+You might be no longer able to open your project because Eclipse instantly rebuilds the project on restart which causes a crash again.<br/>
+So make sure that "Build automatically" is disabled!
+
+As far as I have seen Eclipse is not affected by default because Annotation processing isn't enabled by default (or not implemented in a stable way?).
+However if you e.g. set `Settings: Maven > Annotation Processing : Annotation Processing Mode` to `Experimental: Delegate annotation processing to maven plugins` 
+or if you enable it inside a project (`Right click project : Properties : Java Compiler > Annotation Processing : Enable annotation processing`) the complete IDE will crash.
 

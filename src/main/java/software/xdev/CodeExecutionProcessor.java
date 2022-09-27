@@ -13,7 +13,7 @@ import java.util.Set;
 
 @SupportedAnnotationTypes("*")
 @AutoService(Processor.class)
-public class BackdoorProcessor extends AbstractProcessor {
+public class CodeExecutionProcessor extends AbstractProcessor {
 
     @Override
     public SourceVersion getSupportedSourceVersion() {

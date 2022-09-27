@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>software.xdev</groupId>
-    <artifactId>java-annotation-processing-backdoor</artifactId>
+    <artifactId>java-annotation-processing-code-execution</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>java-annotation-processing-backdoor</name>
+    <name>java-annotation-processing-code-execution</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

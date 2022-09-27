@@ -1,4 +1,4 @@
-# Java Annotation Processing Backdoor 
+# Java Annotation Processing Code Execution
 <sup><i>Since Java 6</i></sup>
 
 This is a test library to test if your compiler automatically executes Java Annotation Processors.
@@ -21,20 +21,20 @@ Everything that uses a Java Compiler (e.g. `javac` or `ecj`) with the default op
 
 ## Testing if your code is attackable
 
-1. Specifiy the code you want to run inside [BackdoorProcessor](./src/main/java/software/xdev/BackdoorProcessor.java)
+1. Specifiy the code you want to run inside [CodeExecutionProcessor](./src/main/java/software/xdev/CodeExecutionProcessor.java)
 2. Build the library by running `mvn clean install`
 3. Add the following dependency to your code:<br/>
 	⚠ If you use Eclipse: Make sure that "Build automatically" is disabled! (see below)
 	```xml
 	<dependency>
 		<groupId>software.xdev</groupId>
-		<artifactId>java-annotation-processing-backdoor</artifactId>
+		<artifactId>java-annotation-processing-code-execution</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</dependency>
 	```
 4. Compile/Build your code using maven, your IDE or whatever. 
 
-→ The code inside BackdoorProcessor should be executed
+→ The code inside CodeExecutionProcessor should be executed
 
 ## Mitigation / How to fix this?
 

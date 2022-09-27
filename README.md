@@ -25,6 +25,8 @@ Run ``mvn clean install``.
 
 ## Testing if your code is attackable
 
+Build the library as mentioned above.
+
 Add the following dependency to your code:
 ```xml
 <dependency>

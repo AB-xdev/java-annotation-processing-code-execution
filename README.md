@@ -5,6 +5,8 @@ This is a test library to test if your compiler automatically executes Java Anno
 
 ## Background
 
+<img src="./JSR269InANutshell.png" height=450 />
+
 [JSR 269](https://jcp.org/en/jsr/detail?id=269) introduced Annotation processing into Java.<br/>
 Annotation processing is done by the Java compiler itself (because it comes from a time before buildtools like Maven or Gradle).
 

@@ -35,3 +35,38 @@ Add the following dependency to your code:
 	<version>1.0-SNAPSHOT</version>
 </dependency>
 ```
+
+## Mitigation / How to fix this?
+
+### Java-Compiler
+There is a compiler flag [`-proc:none`](https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html#option-proc) that can disable the above mentioned behavior.
+
+### Maven
+Ensure that the compiler is executed with `-proc:none`, like this:
+```xml
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<version>3.10.1</version>
+	<configuration>
+		<compilerArgs>
+			<arg>-proc:none</arg>
+		</compilerArgs>
+	</configuration>
+</plugin>
+```
+
+The best solution is to configure this in all modules by doing it inside the parent poms ``build -> pluginManagement -> plugins``-section
+
+### IDEs
+
+IDEs usually have custom support for Annotation Processing.
+
+#### IntelliJ IDEA
+
+IDEA automatically imports the `-proc:none` argument from Maven if configured correctly.<br/>
+However this doesn't disable the Annotation Processors and they are still executed when building, which leads to errors like `java: java.lang.ClassNotFoundException: org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor`.<br/>
+[You have to disable them in the settings](https://www.jetbrains.com/help/idea/annotation-processors-support.html).
+
+#### Eclipse
+

@@ -17,7 +17,7 @@ This itself is not a problem but the following design aspects are:
 
 So if a malicous or manipulated library somehow ends up in your project, it can execute ANY code when compilation happens due to [Java's service-loading](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ServiceLoader.html).
 
-Everything that uses a Java Compiler (e.g. `javac` or `ecj`) with the default options (IDEs like Eclipse/IntelliJ or the maven-compiler-plugin) are affected.
+Everything that uses a Java Compiler (e.g. `javac` or `ecj`) with the default options (IDEs like Eclipse/IntelliJ or the maven-compiler-plugin) is affected.
 
 ## Testing if your code is attackable
 

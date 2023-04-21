@@ -3,7 +3,7 @@
 
 This is a test library to test if your compiler automatically executes Java Annotation Processors.
 
-⚠ This library might crash the compiler
+⚠ This library will likely crash the compiler
 
 ## Background
 
@@ -15,13 +15,13 @@ Annotation processing is done by the Java compiler itself (because it's from a t
 This itself is not a problem but the following design aspects are:
 > Unless annotation processing is disabled with the `-proc:none` option, the compiler searches for any annotation processors that are available. The search path can be specified with the `-processorpath` option. If no path is specified, then the user class path is used. Processors are located by means of service provider-configuration files named `META-INF/services/javax.annotation.processing` ... <sup>[[Javac Documentation]](https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html#annotation-processing)</sup>
 
-So if a malicous or manipulated library somehow ends up in your project, it can execute ANY code when compilation happens due to [Java's service-loading](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ServiceLoader.html).
+So if a malicious or manipulated library somehow ends up in your project, it can execute ANY code when compilation happens due to [Java's service-loading](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ServiceLoader.html).
 
 Everything that uses a Java Compiler (like `javac` or `ecj`) with the default options (IDEs like Eclipse/IntelliJ or the maven-compiler-plugin) is affected.
 
 ## Testing if your code is attackable
 
-1. Specifiy the code you want to run inside [CodeExecutionProcessor](./src/main/java/software/xdev/CodeExecutionProcessor.java)
+1. Specify the code you want to run inside [CodeExecutionProcessor](./src/main/java/software/xdev/CodeExecutionProcessor.java)
 2. Build the library by running `mvn clean install`
 3. Add the following dependency to your code:<br/>
 	⚠ If you use Eclipse: Make sure that "Build automatically" is disabled! (see below)
@@ -70,7 +70,7 @@ However this doesn't disable the Annotation Processors which are defined in Mave
 
 #### Eclipse
 
-⚠ Adding this library might cause the IDE to crash because the build process is not sandboxed.<br/>
+> **⚠ WARNING** Adding this library might cause the IDE to crash because the build process is not sandboxed.<br/>
 You might be no longer able to open your project because Eclipse instantly rebuilds the project on restart which causes a crash again.<br/>
 So make sure that "Build automatically" is disabled!
 

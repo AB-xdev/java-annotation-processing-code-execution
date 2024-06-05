@@ -1,9 +1,9 @@
 # Java Annotation Processing Code Execution
-<sup><i>Since Java 6</i></sup>
 
-This is a test library to test if your compiler automatically executes Java Annotation Processors.
+This is a test library to check if your compiler automatically executes Java Annotation Processors.
 
-⚠ This library will likely crash the compiler
+> [!WARNING]
+> This library will likely crash the compiler
 
 ## Background
 
@@ -70,11 +70,12 @@ However this doesn't disable the Annotation Processors which are defined in Mave
 
 #### Eclipse
 
-> **⚠ WARNING** Adding this library might cause the IDE to crash because the build process is not sandboxed.<br/>
+> [!WARNING]
+> Adding this library might cause the IDE to crash because the build process is not sandboxed.<br/>
 You might be no longer able to open your project because Eclipse instantly rebuilds the project on restart which causes a crash again.<br/>
 So make sure that "Build automatically" is disabled!
 
-As far as I have seen Eclipse is not affected by default because Annotation processing isn't enabled by default (or not implemented in a stable way?).
-However if you e.g. set `Settings: Maven > Annotation Processing : Annotation Processing Mode` to `Experimental: Delegate annotation processing to maven plugins` 
+As far as I have seen Eclipse is not affected by default because Annotation processing isn't enabled by default (or not implemented in a stable way?).<rb/>
+However if you e.g. set `Settings: Maven > Annotation Processing : Annotation Processing Mode` to `Experimental: Delegate annotation processing to maven plugins`
 or if you enable it inside a project (`Right click project : Properties : Java Compiler > Annotation Processing : Enable annotation processing`) the complete IDE will crash.
 

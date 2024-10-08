@@ -1,4 +1,4 @@
-# Java Annotation Processing Code Execution
+# Java Annotation Processing Code Execution PoC
 
 > [!NOTE]
 > This is effectively **fixed in Java 23** as [annotation processing is now disabled by default](https://www.oracle.com/java/technologies/javase/23-relnote-issues.html#JDK-8321314).

@@ -38,6 +38,9 @@ Everything that uses a Java Compiler (like `javac` or `ecj`) with the default op
 
 ## Mitigation / How to fix this?
 
+> [!IMPORTANT]
+> This is effectively **fixed in Java 23** as [annotation processing is now disabled by default](https://www.oracle.com/java/technologies/javase/23-relnote-issues.html#JDK-8321314).
+
 ### Java-Compiler
 As mentioned above there is a compiler flag [`-proc:none`](https://docs.oracle.com/en/java/javase/17/docs/specs/man/javac.html#option-proc) which disables annotation processing by the compiler.
 

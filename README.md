@@ -68,12 +68,12 @@ Gradle is most likely not affected as it usually uses a [Java Toolchain](https:/
 IDEs usually have custom support for Annotation Processing.
 
 #### IntelliJ IDEA
-
 Impact varies based on the used build tool.
 
-For Maven:<br/>
+##### For Maven
 IDEA automatically imports the `-proc:none` argument from Maven if configured correctly.<br/>
-However this doesn't disable the Annotation Processors which are defined in Maven `pom.xml`s and they are still executed when building, which leads to errors like `java: java.lang.ClassNotFoundException: org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor`.<br/>
+However this doesn't disable the Annotation Processors which are defined in Maven `pom.xml`s (as they are a separate setting in the IDE) and it still tries to run them when building, which leads to errors like `java: java.lang.ClassNotFoundException: org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor`.
+
 [You have to disable them in the settings](https://www.jetbrains.com/help/idea/annotation-processors-support.html).
 
 #### Eclipse

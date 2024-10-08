@@ -61,12 +61,17 @@ Ensure that the compiler is executed with `-proc:none`, like this:
 
 The best solution is to configure this in all modules by doing it inside the parent poms ``build -> pluginManagement -> plugins``-section
 
-### IDEs
+### Gradle
+Gradle is most likely not affected as it usually uses a [Java Toolchain](https://docs.gradle.org/current/userguide/toolchains.html) and annotation processors must be declared explicitly
 
+### IDEs
 IDEs usually have custom support for Annotation Processing.
 
 #### IntelliJ IDEA
 
+Impact varies based on the used build tool.
+
+For Maven:<br/>
 IDEA automatically imports the `-proc:none` argument from Maven if configured correctly.<br/>
 However this doesn't disable the Annotation Processors which are defined in Maven `pom.xml`s and they are still executed when building, which leads to errors like `java: java.lang.ClassNotFoundException: org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor`.<br/>
 [You have to disable them in the settings](https://www.jetbrains.com/help/idea/annotation-processors-support.html).
@@ -78,7 +83,7 @@ However this doesn't disable the Annotation Processors which are defined in Mave
 You might be no longer able to open your project because Eclipse instantly rebuilds the project on restart which causes a crash again.<br/>
 So make sure that "Build automatically" is disabled!
 
-As far as I have seen Eclipse is not affected by default because Annotation processing isn't enabled by default (or not implemented in a stable way?).<rb/>
+As far as I have seen Eclipse is not affected by default because Annotation processing isn't enabled by default (or not implemented in a stable way?).<br/>
 However if you e.g. set `Settings: Maven > Annotation Processing : Annotation Processing Mode` to `Experimental: Delegate annotation processing to maven plugins`
 or if you enable it inside a project (`Right click project : Properties : Java Compiler > Annotation Processing : Enable annotation processing`) the complete IDE will crash.
 
